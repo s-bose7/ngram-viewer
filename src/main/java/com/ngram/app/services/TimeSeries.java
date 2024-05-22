@@ -88,9 +88,15 @@ public class TimeSeries extends TreeMap<Integer, Double> {
      * IllegalArgumentException.
      * If TS has a year that is not in this TimeSeries, ignore it.
      */
-    public TimeSeries dividedBy(TimeSeries ts) {
+    public TimeSeries dividedBy(TimeSeries ts) throws IllegalArgumentException {
     	TimeSeries postDivisionSeries = new TimeSeries();
-    	
-        return null;
+    	for (Map.Entry<Integer, Double> entry : this.entrySet()) {
+    		int year = entry.getKey();
+    		if(!ts.containsKey(year)) {
+    			throw new IllegalArgumentException("The parameter ts does not contain the year: " + year);
+    		}
+    		postDivisionSeries.put(year, entry.getValue() / ts.get(year));
+        }
+        return postDivisionSeries;
     }
 }

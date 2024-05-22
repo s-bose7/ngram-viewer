@@ -1,18 +1,21 @@
 package com.ngram.app.services;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.TreeMap;
 
 /**
- * An object for mapping a year number (e.g. 1996) to numerical data. Provides
- * utility methods useful for data analysis.
+ * An object for mapping a year number (e.g. 1996) to it's weighted value (3.23525) for it's popularity. 
+ * Provides utility methods useful for data analysis.
  * @author s-bose7
  */
 public class TimeSeries extends TreeMap<Integer, Double> {
 
-    /** If it helps speed up your code, you can assume year arguments to your NGramMap
-     * are between 1400 and 2100. We've stored these values as the constants
-     * MIN_YEAR and MAX_YEAR here. */
+    /** 
+     * Assume year arguments to your NGramMap are between 1400 and 2100. 
+     * We've stored these values as the constants MIN_YEAR and MAX_YEAR here. 
+     */
     public static final int MIN_YEAR = 1400;
     public static final int MAX_YEAR = 2100;
 
@@ -29,15 +32,18 @@ public class TimeSeries extends TreeMap<Integer, Double> {
      */
     public TimeSeries(TimeSeries ts, int startYear, int endYear) {
         super();
-        // TODO: Fill in this constructor.
+        for(int year=startYear; year<=endYear; year++) {
+        	if(ts.containsKey(year)) { 
+        		this.put(year, ts.get(year)); 
+        	}
+        }
     }
 
     /**
      * Returns all years for this TimeSeries (in any order).
      */
     public List<Integer> years() {
-        // TODO: Fill in this method.
-        return null;
+        return new ArrayList<>(this.keySet());
     }
 
     /**
@@ -45,8 +51,7 @@ public class TimeSeries extends TreeMap<Integer, Double> {
      * Must be in the same order as years().
      */
     public List<Double> data() {
-        // TODO: Fill in this method.
-        return null;
+        return new ArrayList<Double>(this.values());
     }
 
     /**
@@ -59,8 +64,19 @@ public class TimeSeries extends TreeMap<Integer, Double> {
      * should store the value from the TimeSeries that contains that year.
      */
     public TimeSeries plus(TimeSeries ts) {
-        // TODO: Fill in this method.
-        return null;
+        // New timeseries object 
+    	TimeSeries combinedTimeSeries = new TimeSeries();
+        // Traverse over this timeseries and put all the key-values in the new timeseries 
+    	for (Map.Entry<Integer, Double> entry : this.entrySet()) {
+            int year = entry.getKey();
+            combinedTimeSeries.put(year, entry.getValue() + ts.getOrDefault(year, 0.0));
+        }
+    	
+    	for (Map.Entry<Integer, Double> entry : ts.entrySet()) {
+            combinedTimeSeries.putIfAbsent(entry.getKey(), entry.getValue());
+        }
+    	
+        return combinedTimeSeries;
     }
 
     /**
@@ -72,11 +88,15 @@ public class TimeSeries extends TreeMap<Integer, Double> {
      * IllegalArgumentException.
      * If TS has a year that is not in this TimeSeries, ignore it.
      */
-    public TimeSeries dividedBy(TimeSeries ts) {
-        // TODO: Fill in this method.
-        return null;
+    public TimeSeries dividedBy(TimeSeries ts) throws IllegalArgumentException {
+    	TimeSeries postDivisionSeries = new TimeSeries();
+    	for (Map.Entry<Integer, Double> entry : this.entrySet()) {
+    		int year = entry.getKey();
+    		if(!ts.containsKey(year)) {
+    			throw new IllegalArgumentException("The parameter ts does not contain the year: " + year);
+    		}
+    		postDivisionSeries.put(year, entry.getValue() / ts.get(year));
+        }
+        return postDivisionSeries;
     }
-
-    // TODO: Add any private helper methods.
-    // TODO: Remove all TODO comments before submitting.
 }

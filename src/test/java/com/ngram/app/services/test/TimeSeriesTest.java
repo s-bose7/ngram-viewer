@@ -9,13 +9,30 @@ import java.util.Arrays;
 import java.util.List;
 
 import static com.google.common.truth.Truth.assertThat;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThrows;
 
 /** Unit Tests for the TimeSeries class.
- *  @author Josh Hug
+ *  @author s-bose7
  */
+
 public class TimeSeriesTest {
+	
+	@Test
+    public void testConstructor() {
+		TimeSeries timeSeries = new TimeSeries();
+		timeSeries.put(1992, 26.09);
+		timeSeries.put(1994, 26.07);
+		timeSeries.put(1995, 880.6);
+		timeSeries.put(2010, 4.034);
+		
+		TimeSeries newTimeSeries = new TimeSeries(timeSeries, 1993, 2015);
+		List<Integer> expectedYears = new ArrayList<Integer>(Arrays.asList(1994, 1995, 2010));
+		assertThat(newTimeSeries.years()).isEqualTo(expectedYears);
+    }	
+	
     @Test
-    public void testFromSpec() {
+    public void testPlusMethod() {
         TimeSeries catPopulation = new TimeSeries();
         catPopulation.put(1991, 0.0);
         catPopulation.put(1992, 100.0);
@@ -57,4 +74,29 @@ public class TimeSeriesTest {
         assertThat(totalPopulation.years()).isEmpty();
         assertThat(totalPopulation.data()).isEmpty();
     }
+    
+    @Test
+    public void testDivideByMethod() {
+    	
+    	TimeSeries tSeriesOne = new TimeSeries();
+    	double randomWeightedPopularity = 2.34;
+    	
+    	for(int year=2000; year<2007; year++) {
+    		tSeriesOne.put(year, randomWeightedPopularity);
+    		randomWeightedPopularity *= 1.354;
+    	}
+    	
+    	TimeSeries tSeriesTwo = new TimeSeries();
+    	tSeriesTwo.put(1900, 2.458);
+    	assertThrows(IllegalArgumentException.class, () -> tSeriesOne.dividedBy(tSeriesTwo));
+    	tSeriesTwo.put(2000, 2.448);
+    	tSeriesTwo.put(2001, 6.423);
+    	tSeriesTwo.put(2002, 4.263);
+    	tSeriesTwo.put(2003, 6.458);
+    	tSeriesTwo.put(2004, 3.458);
+    	tSeriesTwo.put(2005, 7.458);
+    	tSeriesTwo.put(2006, 7.367);
+    	assertEquals(7, tSeriesOne.dividedBy(tSeriesTwo).years().size());
+    }
+    
 } 

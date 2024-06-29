@@ -13,33 +13,26 @@ import static com.ngram.app.utils.Utils.*;
 import static com.google.common.truth.Truth.assertThat;
 
 /** Unit Tests for the NGramMap class.
- *  @author 
+ *  @author s-bose7
  */
 public class NGramMapTest {
     @Test
     public void testCountHistory() {
         NGramMap ngm = new NGramMap(SHORT_WORDS_FILE, TOTAL_COUNTS_FILE);
-        List<Integer> expectedYears = new ArrayList<>
-                (Arrays.asList(2005, 2006, 2007, 2008));
-        List<Double> expectedCounts = new ArrayList<>
-                (Arrays.asList(646179.0, 677820.0, 697645.0, 795265.0));
-
+        List<Integer> expectedYears = new ArrayList<>(Arrays.asList(2005, 2006, 2007, 2008));
+        List<Double> expectedCounts = new ArrayList<>(Arrays.asList(646179.0, 677820.0, 697645.0, 795265.0));
         TimeSeries request2005to2008 = ngm.countHistory("request");
+        
         assertThat(request2005to2008.years()).isEqualTo(expectedYears);
-
         for (int i = 0; i < expectedCounts.size(); i += 1) {
             assertThat(request2005to2008.data().get(i)).isWithin(1E-10).of(expectedCounts.get(i));
         }
 
-        expectedYears = new ArrayList<>
-                (Arrays.asList(2006, 2007));
-        expectedCounts = new ArrayList<>
-                (Arrays.asList(677820.0, 697645.0));
-
+        expectedYears = new ArrayList<>(Arrays.asList(2006, 2007));
+        expectedCounts = new ArrayList<>(Arrays.asList(677820.0, 697645.0));
         TimeSeries request2006to2007 = ngm.countHistory("request", 2006, 2007);
-
+        
         assertThat(request2006to2007.years()).isEqualTo(expectedYears);
-
         for (int i = 0; i < expectedCounts.size(); i += 1) {
             assertThat(request2006to2007.data().get(i)).isWithin(1E-10).of(expectedCounts.get(i));
         }
@@ -48,8 +41,7 @@ public class NGramMapTest {
     @Test
     public void testOnLargeFile() {
         // creates an NGramMap from a large dataset
-        NGramMap ngm = new NGramMap(TOP_14337_WORDS_FILE,
-                TOTAL_COUNTS_FILE);
+        NGramMap ngm = new NGramMap(TOP_14337_WORDS_FILE, TOTAL_COUNTS_FILE);
 
         // returns the count of the number of occurrences of fish per year between 1850 and 1933.
         TimeSeries fishCount = ngm.countHistory("fish", 1850, 1933);

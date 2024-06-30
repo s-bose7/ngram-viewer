@@ -10,6 +10,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public abstract class NgordnetQueryHandler implements Route {
+	
     public abstract String handle(NgordnetQuery q);
     private static final Gson gson = new Gson();
 

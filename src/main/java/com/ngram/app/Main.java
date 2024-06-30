@@ -12,7 +12,6 @@ public class Main {
     static {
         LoggerFactory.getLogger(Main.class).info("\033[1;38mChanging text color to white");
     }
-    /* Do not delete or modify the code above! */
 
     public static void main(String[] args) {
         NgordnetServer hns = new NgordnetServer();
@@ -21,7 +20,7 @@ public class Main {
 
         hns.startUp();
         hns.register("history", new DummyHistoryHandler());
-        hns.register("historytext", new DummyHistoryTextHandler());
+        hns.register("historytext", new HistoryTextHandler(ngm));
 
         System.out.println("Finished server startup! Visit http://localhost:4567/ngordnet_2a.html");
     }

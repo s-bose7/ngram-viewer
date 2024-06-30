@@ -12,7 +12,8 @@ import java.util.TreeMap;
  */
 public class TimeSeries extends TreeMap<Integer, Double> {
 
-    /** 
+    private static final long serialVersionUID = 1L;
+	/** 
      * Assume year arguments to your NGramMap are between 1400 and 2100. 
      * We've stored these values as the constants MIN_YEAR and MAX_YEAR here. 
      */

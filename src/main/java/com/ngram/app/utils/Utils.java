@@ -5,7 +5,7 @@ package com.ngram.app.utils;
  */
 public class Utils {
     
-	private static final String PREFIX = "../resources/com/ngram/app/data/ngrams/";
+	private static final String PREFIX = "/home/sbose/Programs/java/n-gram/src/main/resources/data/ngrams/";
 	
     public static final String TOP_14337_WORDS_FILE = PREFIX + "top_14377_words.csv";
 

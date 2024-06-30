@@ -1,19 +1,17 @@
 package com.ngram.app.test;
-/*
-import browser.NgordnetQuery;
-import main.HistoryTextHandler;
-import ngrams.NGramMap;
+
+import com.ngram.app.browser.NgordnetQuery;
+import com.ngram.app.HistoryTextHandler;
+import com.ngram.app.services.NGramMap;
 
 import org.junit.jupiter.api.Test;
 import java.util.List;
 
-import static utils.Utils.*;
+import static com.ngram.app.utils.Utils.*;
 import static com.google.common.truth.Truth.assertThat;
- */
 
-// uncomment this test whenever you are ready!
+
 public class HistoryTextHandlerTest {
-    /*
     @Test
     public void testHandle() {
         NGramMap ngm = new NGramMap(SHORT_WORDS_FILE, TOTAL_COUNTS_FILE);
@@ -26,5 +24,4 @@ public class HistoryTextHandlerTest {
                 """;
         assertThat(actual).isEqualTo(expected);
     }
-    */
 }

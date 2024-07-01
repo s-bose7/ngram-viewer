@@ -31,7 +31,7 @@ public class Plotter {
     }
 
     public static void displayChart(XYChart chart) {
-        new SwingWrapper(chart).displayChart();
+        new SwingWrapper<XYChart>(chart).displayChart();
     }
 
     public static String encodeChartAsString(XYChart chart) {

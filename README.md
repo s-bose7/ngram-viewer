@@ -13,9 +13,13 @@ The corpora has been collected from [Google's Ngram datasets](https://storage.go
 
 | Informal corpus name | Shorthand | Persistent identifier | Description |  
 |----------------------|-----------|-----------------------|-------------|
-| American English 2019|eng_us_2019|googlebooks-eng-us-20200217|	
+| American English 2019|eng_us_2019|googlebooks-eng-us-20200217	
 | American English 2012|eng_us_2012|googlebooks-eng-us-20120701|Books predominantly in the English language that were published in the United States.
-| American English 2009|eng_us_2009|googlebooks-eng-us-20090715|
+| American English 2009|eng_us_2009|googlebooks-eng-us-20090715
+| British English 2019 |eng_gb_2019|googlebooks-eng-gb-20200217
+| British English 2012 |eng_gb_2012|googlebooks-eng-gb-20120701|Books predominantly in the English language that were published in Britain.
+| British English 2009 |eng_gb_2009|googlebooks-eng-gb-20090715
+
 # References:
 - **Google Books Ngram Viewer**: Explore the official [Google Books Ngram Viewer](https://books.google.com/ngrams/)
 - **Dataset Format and Organization**: Detailed information on the dataset format and organization can be found in this [doc](https://docs.google.com/document/d/14PWeoTkrnKk9H8_7CfVbdvuoFZ7jYivNTkBX2Hj7qLw/edit#heading=h.8nhntsyjxg92).

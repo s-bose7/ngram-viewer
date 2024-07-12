@@ -1,0 +1,76 @@
+.textresult {
+  overflow-y: auto;
+  height: 600px;
+  width: 800px;
+  resize: none;
+  display: none;
+  padding: 0px;
+  margin: 0px;
+}
+
+.hiddentext {
+  display: none;
+}
+
+img, textarea {
+  border-radius: .5rem;
+  height: 80vh;
+  width: 100vw;
+  max-width: 100%;
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%);
+  left: 50%;
+  position: relative;
+}
+
+/* Year input form */
+.mb-3 {
+  width: 270px;
+}
+
+.mb-2 {
+  display: flex;
+  align-items: center;
+}
+
+.input-group-text {
+  background-color: #343a40;
+  color: white;
+  border: 1px solid #ced4da;
+}
+
+.year-input {
+  width: 20px;
+}
+
+.search-btn {
+  margin-right: 40px;
+}
+
+.footer {
+  background-color: #333;
+  color: white;
+  padding: 8px 0;
+  text-align: center;
+}
+
+.footer p {
+  margin-top: 10px;
+}
+
+.social-links a {
+  color: white;
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+.social-links a:hover {
+  opacity: 0.8;
+}
+
+.github-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 15px;
+}

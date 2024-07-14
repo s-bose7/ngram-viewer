@@ -1,7 +1,7 @@
 # What does the Ngram viewer do?
 When you enter words into the Ngram Viewer, it displays a graph showing how those words have occurred in a corpus of books (e.g., "British English", "English Fiction", "French") over the selected years.
 
-![n-gram](src/main/resources/static/ngram-github.png)
+![n-gram](examples/ngram-climate-diesel.png)
 
 This shows trends in two ngrams from 1950 to 2015: "climate" (a 1-gram) and "diesel" (another 1-gram). The Y-axis shows: of all the unigrams contained in the sample of books written in English, what percentage of them are 
 "climate" and "diesel". Here, you can see that use of the word "climate" started to rise in the late 90s, reached it's peak around 2010, and we talk more about the word "climate" in the books rather than the word "diesel".

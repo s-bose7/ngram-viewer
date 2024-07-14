@@ -12,18 +12,6 @@
   display: none;
 }
 
-img, textarea {
-  border-radius: .5rem;
-  height: 80vh;
-  width: 100vw;
-  max-width: 100%;
-  position: absolute;
-  top: 0;
-  transform: translateX(-50%);
-  left: 50%;
-  position: relative;
-}
-
 /* Year input form */
 .mb-3 {
   width: 270px;
@@ -46,6 +34,23 @@ img, textarea {
 
 .search-btn {
   margin-right: 40px;
+}
+
+.plotter-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh; 
+}
+
+#plot {
+  margin-left: 50px;
+}
+
+.grid-line {
+  stroke: #b4b2b2;
+  stroke-opacity: 0.6; 
+  stroke-width: 0.5px;
 }
 
 .footer {

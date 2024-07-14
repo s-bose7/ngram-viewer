@@ -2,8 +2,7 @@ package com.ngram.app.endpoint.test;
 
 import com.ngram.app.HistoryHandler;
 import com.ngram.app.server.NgramQuery;
-import com.ngram.app.services.NGramMap;
-
+import com.ngram.app.service.NGramMap;
 import com.google.gson.JsonArray;
 
 import org.junit.jupiter.api.Test;

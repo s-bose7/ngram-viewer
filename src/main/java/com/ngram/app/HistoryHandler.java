@@ -2,8 +2,8 @@ package com.ngram.app;
 
 import com.ngram.app.server.NgramQuery;
 import com.ngram.app.server.NgramQueryHandler;
-import com.ngram.app.services.NGramMap;
-import com.ngram.app.services.TimeSeries;
+import com.ngram.app.service.NGramMap;
+import com.ngram.app.service.TimeSeries;
 
 import java.util.List;
 import java.util.Map;

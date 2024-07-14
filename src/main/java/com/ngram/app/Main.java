@@ -2,7 +2,7 @@ package com.ngram.app;
 
 import org.slf4j.LoggerFactory;
 import com.ngram.app.server.NgramServer;
-import com.ngram.app.services.NGramMap;
+import com.ngram.app.service.NGramMap;
 
 import static com.ngram.app.utils.Utils.*;
 

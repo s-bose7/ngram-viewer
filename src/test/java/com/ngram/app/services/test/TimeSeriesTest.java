@@ -1,8 +1,8 @@
 package com.ngram.app.services.test;
 
-import com.ngram.app.services.TimeSeries;
-
 import org.junit.jupiter.api.Test;
+
+import com.ngram.app.service.TimeSeries;
 
 import java.util.ArrayList;
 import java.util.Arrays;

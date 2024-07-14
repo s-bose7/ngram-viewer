@@ -1,8 +1,8 @@
 package com.ngram.app;
 
-import com.ngram.app.services.NGramMap;
-import com.ngram.app.services.TimeSeries;
 import com.ngram.app.plotting.Plotter;
+import com.ngram.app.service.NGramMap;
+import com.ngram.app.service.TimeSeries;
 
 import org.knowm.xchart.XYChart;
 

@@ -1,9 +1,10 @@
 package com.ngram.app.plotting;
 
-import com.ngram.app.services.TimeSeries;
 import org.knowm.xchart.BitmapEncoder;
 import org.knowm.xchart.SwingWrapper;
 import org.knowm.xchart.XYChart;
+
+import com.ngram.app.service.TimeSeries;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;

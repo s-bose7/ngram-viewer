@@ -1,12 +1,12 @@
-package com.ngram.app.services;
+package com.ngram.app.service;
+
+import static com.ngram.app.service.TimeSeries.MAX_YEAR;
+import static com.ngram.app.service.TimeSeries.MIN_YEAR;
 
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import static com.ngram.app.services.TimeSeries.MAX_YEAR;
-import static com.ngram.app.services.TimeSeries.MIN_YEAR;
 
 import com.ngram.app.utils.CSVReader;
 

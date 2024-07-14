@@ -1,4 +1,4 @@
-package com.ngram.app.services;
+package com.ngram.app.service;
 
 import java.util.ArrayList;
 import java.util.List;

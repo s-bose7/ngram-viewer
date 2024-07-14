@@ -1,4 +1,4 @@
-package com.ngram.app.test;
+package com.ngram.app.endpoint.test;
 
 import com.ngram.app.HistoryHandler;
 import com.ngram.app.server.NgramQuery;

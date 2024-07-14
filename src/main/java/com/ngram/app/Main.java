@@ -1,11 +1,10 @@
 package com.ngram.app;
 
-import static com.ngram.app.utils.Utils.*;
-
 import org.slf4j.LoggerFactory;
-
-import com.ngram.app.browser.NgordnetServer;
+import com.ngram.app.server.NgramServer;
 import com.ngram.app.services.NGramMap;
+
+import static com.ngram.app.utils.Utils.*;
 
 
 public class Main {
@@ -14,14 +13,13 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        NgordnetServer hns = new NgordnetServer();
+    	NgramServer hns = new NgramServer();
 
         NGramMap ngm = new NGramMap(TOP_14337_WORDS_FILE, TOTAL_COUNTS_FILE);
 
         hns.startUp();
         hns.register("history", new HistoryHandler(ngm));
-        hns.register("historytext", new HistoryTextHandler(ngm));
 
-        System.out.println("Finished server startup! Visit http://localhost:4567/ngordnet_2a.html");
+        System.out.println("Finished server startup! ENDPOINT: http://localhost:4567/history");
     }
 }

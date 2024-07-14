@@ -1,13 +1,6 @@
-package com.ngram.app.browser;
+package com.ngram.app.server;
 
 import java.util.List;
 
-/**
- * Created by hug.
- */
-
-public record NgordnetQuery(List<String> words,
-        int startYear,
-        int endYear,
-        int k) {
+public record NgramQuery(List<String> words, int startYear, int endYear) {
 }

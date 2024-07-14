@@ -1,6 +1,8 @@
-package com.ngram.app.browser;
+package com.ngram.app.server;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+
 import spark.QueryParamsMap;
 import spark.Request;
 import spark.Response;
@@ -9,10 +11,11 @@ import spark.Route;
 import java.util.Arrays;
 import java.util.List;
 
-public abstract class NgordnetQueryHandler implements Route {
+public abstract class NgramQueryHandler implements Route {
 	
-    public abstract String handle(NgordnetQuery q);
-    private static final Gson gson = new Gson();
+	public static final Gson gson = new Gson();
+	public abstract JsonArray handle(NgramQuery q);
+    
 
     private static List<String> commaSeparatedStringToList(String s) {
         String[] requestedWords = s.split(",");
@@ -22,12 +25,12 @@ public abstract class NgordnetQueryHandler implements Route {
         return Arrays.asList(requestedWords);
     }
 
-    private static NgordnetQuery readQueryMap(QueryParamsMap qm) {
+    
+    private static NgramQuery readQueryMap(QueryParamsMap qm) {
         List<String> words = commaSeparatedStringToList(qm.get("words").value());
 
         int startYear;
         int endYear;
-        int k;
 
         try {
             startYear = Integer.parseInt(qm.get("startYear").value());
@@ -41,20 +44,14 @@ public abstract class NgordnetQueryHandler implements Route {
             endYear = 2020;
         }
 
-        try {
-            k = Integer.parseInt(qm.get("k").value());
-        } catch(RuntimeException e) {
-            k = 0;
-        }
-
-        return new NgordnetQuery(words, startYear, endYear, k);
+        return new NgramQuery(words, startYear, endYear);
     }
 
     @Override
-    public String handle(Request request, Response response) throws Exception {
+    public JsonArray handle(Request request, Response response) throws Exception {
         QueryParamsMap qm = request.queryMap();
-        NgordnetQuery nq = readQueryMap(qm);
-        String queryResult = handle(nq);
-        return gson.toJson(queryResult);
+        NgramQuery nq = readQueryMap(qm);
+        JsonArray queryResult = handle(nq);
+        return queryResult;
     }
 }

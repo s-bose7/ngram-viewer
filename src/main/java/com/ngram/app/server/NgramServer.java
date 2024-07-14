@@ -1,12 +1,10 @@
-package com.ngram.app.browser;
+package com.ngram.app.server;
 
 import static spark.Spark.*;
 
-/**
- * Created by hug.
- */
-public class NgordnetServer {
-    public void register(String URL, NgordnetQueryHandler nqh) {
+
+public class NgramServer {
+    public void register(String URL, NgramQueryHandler nqh) {
         get(URL, nqh);
     }
 

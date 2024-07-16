@@ -35,7 +35,7 @@ function createPlot(data) {
     xAxis.selectAll("text") 
         .style("font-size", "12px");
     
-        // Add the vertical axis
+    // Add the vertical axis
     let yAxis = svg.append("g")
         .attr("transform", `translate(${marginLeft},0)`)
         .call(d3.axisLeft(y))
@@ -140,9 +140,8 @@ function createPlot(data) {
 $(function() {
     var host = 'http://localhost:4567';
     const history_server = host + '/history';
-
-    $('#history').click(historyButton);
-
+    $('#pb-indicator').hide();
+    
     function get_params() {
         return {
             words: document.getElementById('words').value,
@@ -152,21 +151,30 @@ $(function() {
     }
 
     function historyButton() {
-        $("#plot").show();
-        var params = get_params();
-        $.get({
-            async: false,
-            url: history_server,
-            data: params,
-            success: function(data) {
-                console.log(data);
-                createPlot(data);
-            },
-            error: function(xhr, status, error) {
-                console.error("Error:", status, error);
-                console.error("Response Text:", xhr.responseText);
-            },
-            dataType: 'json'
-        }); 
+        
+        $('#pb-indicator').show();
+        setTimeout(function() {
+            var params = get_params();
+    
+            $.get({
+                url: history_server,
+                data: params,
+                success: function(data) {
+                    $('#pb-indicator').hide();
+                    console.log(data);
+                    $("#plot").show();
+                    createPlot(data);
+                },
+                error: function(xhr, status, error) {
+                    $('#pb-indicator').hide();
+                    console.error("Error:", status, error);
+                    console.error("Response Text:", xhr.responseText);
+                },
+                dataType: 'json'
+            }); 
+        }, 800); 
     }
+
+    $('#history').click(historyButton);
+    
 });

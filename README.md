@@ -24,3 +24,4 @@ The corpora has been collected from [Google's Ngram datasets](https://storage.go
 - **Google Books Ngram Viewer**: Explore the official [Google Books Ngram Viewer](https://books.google.com/ngrams/)
 - **Dataset Format and Organization**: Detailed information on the dataset format and organization can be found in this [doc](https://docs.google.com/document/d/14PWeoTkrnKk9H8_7CfVbdvuoFZ7jYivNTkBX2Hj7qLw/edit#heading=h.8nhntsyjxg92).
 - **Usage Video**: Learn more about who uses a tool like this by watching this [video here](https://www.youtube.com/watch?v=InJDLLbK0zs).
+- **Whitepapers and Blogs**: Read papers and blogs published by Google on the Ngram Viewer [here](https://research.google/search/?query=ngram&). 
